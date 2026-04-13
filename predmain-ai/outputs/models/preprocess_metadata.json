@@ -1,0 +1,22 @@
+{
+  "run_id": "daad4d9f3520",
+  "batch_id": "88597e1a1cd5",
+  "feature_columns": [
+    "air_temperature",
+    "process_temperature",
+    "rotational_speed",
+    "torque",
+    "tool_wear",
+    "vibration"
+  ],
+  "missing_feature_columns": [],
+  "label_available": true,
+  "medians": {
+    "air_temperature": 296.43,
+    "process_temperature": 306.95,
+    "rotational_speed": 1487.0720000000001,
+    "torque": 42.97,
+    "tool_wear": 33.7415,
+    "vibration": 0.4224
+  }
+}

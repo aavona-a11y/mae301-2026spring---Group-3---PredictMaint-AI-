@@ -1,0 +1,4286 @@
+{
+  "run_id": "daad4d9f3520",
+  "batch_id": "88597e1a1cd5",
+  "source_file": "data\\raw\\sample_sensor_data.csv",
+  "database_path": "C:\\Users\\aidan\\OneDrive\\Documents\\GitHub\\mae301-2026spring---Group-3---PredictMaint-AI-\\predmain-ai\\outputs\\predmainai.db",
+  "feature_columns": [
+    "air_temperature",
+    "process_temperature",
+    "rotational_speed",
+    "torque",
+    "tool_wear",
+    "vibration"
+  ],
+  "metrics": {
+    "rule_based": {
+      "status": "ok",
+      "notes": "",
+      "accuracy": 0.8020833333333334,
+      "precision": 0.4,
+      "recall": 0.23529411764705882,
+      "f1": 0.2962962962962963,
+      "roc_auc": 0.610573343261355,
+      "support": 96,
+      "flagged_count": 10,
+      "verdict": "Weak"
+    },
+    "isolation_forest": {
+      "status": "ok",
+      "notes": "",
+      "accuracy": 0.6458333333333334,
+      "precision": 0.32653061224489793,
+      "recall": 0.9411764705882353,
+      "f1": 0.48484848484848486,
+      "roc_auc": 0.9344750558451229,
+      "support": 96,
+      "flagged_count": 49,
+      "verdict": "Decent"
+    },
+    "autoencoder": {
+      "status": "ok",
+      "notes": "",
+      "accuracy": 0.17708333333333334,
+      "precision": 0.17708333333333334,
+      "recall": 1.0,
+      "f1": 0.3008849557522124,
+      "roc_auc": 0.5189873417721519,
+      "support": 96,
+      "flagged_count": 96,
+      "verdict": "Weak"
+    },
+    "lstm": {
+      "status": "ok",
+      "notes": "",
+      "accuracy": 0.8645833333333334,
+      "precision": 1.0,
+      "recall": 0.23529411764705882,
+      "f1": 0.38095238095238093,
+      "roc_auc": 0.9233060312732688,
+      "support": 96,
+      "flagged_count": 4,
+      "verdict": "Weak"
+    }
+  },
+  "leaderboard": [
+    {
+      "model": "isolation_forest",
+      "display_name": "Isolation Forest",
+      "status": "ok",
+      "notes": "",
+      "accuracy": 0.6458333333333334,
+      "precision": 0.32653061224489793,
+      "recall": 0.9411764705882353,
+      "f1": 0.48484848484848486,
+      "roc_auc": 0.9344750558451229,
+      "support": 96,
+      "flagged_count": 49,
+      "verdict": "Decent"
+    },
+    {
+      "model": "lstm",
+      "display_name": "LSTM",
+      "status": "ok",
+      "notes": "",
+      "accuracy": 0.8645833333333334,
+      "precision": 1.0,
+      "recall": 0.23529411764705882,
+      "f1": 0.38095238095238093,
+      "roc_auc": 0.9233060312732688,
+      "support": 96,
+      "flagged_count": 4,
+      "verdict": "Weak"
+    },
+    {
+      "model": "autoencoder",
+      "display_name": "Autoencoder",
+      "status": "ok",
+      "notes": "",
+      "accuracy": 0.17708333333333334,
+      "precision": 0.17708333333333334,
+      "recall": 1.0,
+      "f1": 0.3008849557522124,
+      "roc_auc": 0.5189873417721519,
+      "support": 96,
+      "flagged_count": 96,
+      "verdict": "Weak"
+    },
+    {
+      "model": "rule_based",
+      "display_name": "Rule-Based",
+      "status": "ok",
+      "notes": "",
+      "accuracy": 0.8020833333333334,
+      "precision": 0.4,
+      "recall": 0.23529411764705882,
+      "f1": 0.2962962962962963,
+      "roc_auc": 0.610573343261355,
+      "support": 96,
+      "flagged_count": 10,
+      "verdict": "Weak"
+    }
+  ],
+  "best_model": "isolation_forest",
+  "per_sample": [
+    {
+      "sample_id": 129,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T18:40:00",
+      "true_label": "FAILURE",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.138,
+        "isolation_forest": 0.738,
+        "autoencoder": 1.0,
+        "lstm": 0.397
+      },
+      "health_score": 26.17,
+      "health_label": "Critical",
+      "explanation": "Risk score 0.74: elevated readings in vibration (2.9z), tool_wear (2.8z), torque (1.4z) pushed this sample into the alert range.",
+      "top_features": [
+        "vibration",
+        "tool_wear",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 130,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T18:45:00",
+      "true_label": "FAILURE",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.148,
+        "isolation_forest": 0.657,
+        "autoencoder": 1.0,
+        "lstm": 0.388
+      },
+      "health_score": 34.3,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.66: elevated readings in tool_wear (2.9z), vibration (2.4z), torque (1.6z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 131,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T18:50:00",
+      "true_label": "FAILURE",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.328,
+        "isolation_forest": 0.947,
+        "autoencoder": 1.0,
+        "lstm": 0.427
+      },
+      "health_score": 5.26,
+      "health_label": "Critical",
+      "explanation": "Risk score 0.95: elevated readings in vibration (3.4z), tool_wear (3.0z), torque (1.9z) pushed this sample into the alert range.",
+      "top_features": [
+        "vibration",
+        "tool_wear",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 132,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T18:55:00",
+      "true_label": "FAILURE",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.293,
+        "isolation_forest": 0.967,
+        "autoencoder": 1.0,
+        "lstm": 0.439
+      },
+      "health_score": 3.26,
+      "health_label": "Critical",
+      "explanation": "Risk score 0.97: elevated readings in vibration (3.3z), tool_wear (3.0z), rotational_speed (2.3z) pushed this sample into the alert range.",
+      "top_features": [
+        "vibration",
+        "tool_wear",
+        "rotational_speed"
+      ]
+    },
+    {
+      "sample_id": 133,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T19:00:00",
+      "true_label": "FAILURE",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.197,
+        "isolation_forest": 0.83,
+        "autoencoder": 1.0,
+        "lstm": 0.431
+      },
+      "health_score": 17.05,
+      "health_label": "Critical",
+      "explanation": "Risk score 0.83: elevated readings in tool_wear (3.1z), vibration (2.9z), torque (1.9z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 134,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T19:05:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.222,
+        "isolation_forest": 0.396,
+        "autoencoder": 1.0,
+        "lstm": 0.335
+      },
+      "health_score": 60.44,
+      "health_label": "Watch",
+      "explanation": "Risk score 0.40: readings stayed near the training baseline, with the largest movement in tool_wear (3.1z), rotational_speed (1.3z), process_temperature (0.8z).",
+      "top_features": [
+        "tool_wear",
+        "rotational_speed",
+        "process_temperature"
+      ]
+    },
+    {
+      "sample_id": 135,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T19:10:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.241,
+        "isolation_forest": 0.427,
+        "autoencoder": 1.0,
+        "lstm": 0.265
+      },
+      "health_score": 57.35,
+      "health_label": "Watch",
+      "explanation": "Risk score 0.43: readings stayed near the training baseline, with the largest movement in tool_wear (3.2z), rotational_speed (1.5z), torque (0.6z).",
+      "top_features": [
+        "tool_wear",
+        "rotational_speed",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 136,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T19:15:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.217,
+        "isolation_forest": 0.356,
+        "autoencoder": 0.96,
+        "lstm": 0.199
+      },
+      "health_score": 64.37,
+      "health_label": "Watch",
+      "explanation": "Risk score 0.36: readings stayed near the training baseline, with the largest movement in tool_wear (3.1z), rotational_speed (1.0z), air_temperature (1.0z).",
+      "top_features": [
+        "tool_wear",
+        "rotational_speed",
+        "air_temperature"
+      ]
+    },
+    {
+      "sample_id": 137,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T19:20:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.224,
+        "isolation_forest": 0.513,
+        "autoencoder": 1.0,
+        "lstm": 0.172
+      },
+      "health_score": 48.71,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.51: readings stayed near the training baseline, with the largest movement in tool_wear (3.1z), rotational_speed (1.4z), vibration (0.8z).",
+      "top_features": [
+        "tool_wear",
+        "rotational_speed",
+        "vibration"
+      ]
+    },
+    {
+      "sample_id": 138,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T19:25:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.217,
+        "isolation_forest": 0.486,
+        "autoencoder": 1.0,
+        "lstm": 0.133
+      },
+      "health_score": 51.41,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.49: readings stayed near the training baseline, with the largest movement in tool_wear (3.1z), air_temperature (1.7z), process_temperature (1.5z).",
+      "top_features": [
+        "tool_wear",
+        "air_temperature",
+        "process_temperature"
+      ]
+    },
+    {
+      "sample_id": 139,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T19:30:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.288,
+        "isolation_forest": 0.583,
+        "autoencoder": 1.0,
+        "lstm": 0.096
+      },
+      "health_score": 41.71,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.58: elevated readings in tool_wear (3.3z), air_temperature (2.0z), torque (1.1z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "air_temperature",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 140,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T19:35:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.252,
+        "isolation_forest": 0.463,
+        "autoencoder": 1.0,
+        "lstm": 0.092
+      },
+      "health_score": 53.7,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.46: readings stayed near the training baseline, with the largest movement in tool_wear (3.2z), air_temperature (1.3z), process_temperature (1.0z).",
+      "top_features": [
+        "tool_wear",
+        "air_temperature",
+        "process_temperature"
+      ]
+    },
+    {
+      "sample_id": 141,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T19:40:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.33,
+        "isolation_forest": 0.338,
+        "autoencoder": 1.0,
+        "lstm": 0.096
+      },
+      "health_score": 66.23,
+      "health_label": "Watch",
+      "explanation": "Risk score 0.34: readings stayed near the training baseline, with the largest movement in tool_wear (3.4z), air_temperature (0.9z), rotational_speed (0.8z).",
+      "top_features": [
+        "tool_wear",
+        "air_temperature",
+        "rotational_speed"
+      ]
+    },
+    {
+      "sample_id": 142,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T19:45:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.373,
+        "isolation_forest": 0.359,
+        "autoencoder": 1.0,
+        "lstm": 0.092
+      },
+      "health_score": 64.14,
+      "health_label": "Watch",
+      "explanation": "Risk score 0.36: readings stayed near the training baseline, with the largest movement in tool_wear (3.6z), process_temperature (1.3z), air_temperature (0.6z).",
+      "top_features": [
+        "tool_wear",
+        "process_temperature",
+        "air_temperature"
+      ]
+    },
+    {
+      "sample_id": 143,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T19:50:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.33,
+        "isolation_forest": 0.374,
+        "autoencoder": 1.0,
+        "lstm": 0.106
+      },
+      "health_score": 62.62,
+      "health_label": "Watch",
+      "explanation": "Risk score 0.37: readings stayed near the training baseline, with the largest movement in tool_wear (3.4z), air_temperature (1.0z), process_temperature (0.9z).",
+      "top_features": [
+        "tool_wear",
+        "air_temperature",
+        "process_temperature"
+      ]
+    },
+    {
+      "sample_id": 144,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T19:55:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.272,
+        "isolation_forest": 0.58,
+        "autoencoder": 1.0,
+        "lstm": 0.123
+      },
+      "health_score": 41.96,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.58: elevated readings in tool_wear (3.3z), rotational_speed (1.8z), process_temperature (1.6z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "rotational_speed",
+        "process_temperature"
+      ]
+    },
+    {
+      "sample_id": 145,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T20:00:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.315,
+        "isolation_forest": 0.5,
+        "autoencoder": 1.0,
+        "lstm": 0.125
+      },
+      "health_score": 49.97,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.50: readings stayed near the training baseline, with the largest movement in tool_wear (3.4z), process_temperature (1.8z), rotational_speed (1.1z).",
+      "top_features": [
+        "tool_wear",
+        "process_temperature",
+        "rotational_speed"
+      ]
+    },
+    {
+      "sample_id": 146,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T20:05:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.351,
+        "isolation_forest": 0.448,
+        "autoencoder": 1.0,
+        "lstm": 0.1
+      },
+      "health_score": 55.16,
+      "health_label": "Watch",
+      "explanation": "Risk score 0.45: readings stayed near the training baseline, with the largest movement in tool_wear (3.5z), air_temperature (1.6z), torque (1.6z).",
+      "top_features": [
+        "tool_wear",
+        "air_temperature",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 147,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T20:10:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.356,
+        "isolation_forest": 0.503,
+        "autoencoder": 1.0,
+        "lstm": 0.107
+      },
+      "health_score": 49.7,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.50: readings stayed near the training baseline, with the largest movement in tool_wear (3.5z), process_temperature (1.4z), air_temperature (1.4z).",
+      "top_features": [
+        "tool_wear",
+        "process_temperature",
+        "air_temperature"
+      ]
+    },
+    {
+      "sample_id": 148,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T20:15:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.341,
+        "isolation_forest": 0.626,
+        "autoencoder": 1.0,
+        "lstm": 0.111
+      },
+      "health_score": 37.39,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.63: elevated readings in tool_wear (3.5z), process_temperature (1.9z), air_temperature (1.8z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "process_temperature",
+        "air_temperature"
+      ]
+    },
+    {
+      "sample_id": 149,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T20:20:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.32,
+        "isolation_forest": 0.711,
+        "autoencoder": 1.0,
+        "lstm": 0.12
+      },
+      "health_score": 28.89,
+      "health_label": "Critical",
+      "explanation": "Risk score 0.71: elevated readings in tool_wear (3.4z), air_temperature (2.1z), process_temperature (1.9z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "air_temperature",
+        "process_temperature"
+      ]
+    },
+    {
+      "sample_id": 150,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T20:25:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.386,
+        "isolation_forest": 0.518,
+        "autoencoder": 1.0,
+        "lstm": 0.139
+      },
+      "health_score": 48.16,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.52: readings stayed near the training baseline, with the largest movement in tool_wear (3.6z), process_temperature (1.8z), rotational_speed (1.6z).",
+      "top_features": [
+        "tool_wear",
+        "process_temperature",
+        "rotational_speed"
+      ]
+    },
+    {
+      "sample_id": 151,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T20:30:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.415,
+        "isolation_forest": 0.676,
+        "autoencoder": 1.0,
+        "lstm": 0.132
+      },
+      "health_score": 32.43,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.68: elevated readings in tool_wear (3.7z), process_temperature (1.6z), air_temperature (1.4z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "process_temperature",
+        "air_temperature"
+      ]
+    },
+    {
+      "sample_id": 152,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T20:35:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.412,
+        "isolation_forest": 0.756,
+        "autoencoder": 1.0,
+        "lstm": 0.147
+      },
+      "health_score": 24.41,
+      "health_label": "Critical",
+      "explanation": "Risk score 0.76: elevated readings in tool_wear (3.7z), air_temperature (2.0z), rotational_speed (1.7z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "air_temperature",
+        "rotational_speed"
+      ]
+    },
+    {
+      "sample_id": 153,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T20:40:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.444,
+        "isolation_forest": 0.586,
+        "autoencoder": 1.0,
+        "lstm": 0.161
+      },
+      "health_score": 41.37,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.59: elevated readings in tool_wear (3.8z), air_temperature (1.7z), process_temperature (1.2z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "air_temperature",
+        "process_temperature"
+      ]
+    },
+    {
+      "sample_id": 154,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T20:45:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.476,
+        "isolation_forest": 0.738,
+        "autoencoder": 1.0,
+        "lstm": 0.182
+      },
+      "health_score": 26.24,
+      "health_label": "Critical",
+      "explanation": "Risk score 0.74: elevated readings in tool_wear (3.9z), air_temperature (2.3z), process_temperature (1.8z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "air_temperature",
+        "process_temperature"
+      ]
+    },
+    {
+      "sample_id": 155,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T20:50:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.45,
+        "isolation_forest": 0.507,
+        "autoencoder": 1.0,
+        "lstm": 0.179
+      },
+      "health_score": 49.27,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.51: readings stayed near the training baseline, with the largest movement in tool_wear (3.8z), process_temperature (1.8z), rotational_speed (0.7z).",
+      "top_features": [
+        "tool_wear",
+        "process_temperature",
+        "rotational_speed"
+      ]
+    },
+    {
+      "sample_id": 156,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T20:55:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.467,
+        "isolation_forest": 0.484,
+        "autoencoder": 1.0,
+        "lstm": 0.165
+      },
+      "health_score": 51.63,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.48: readings stayed near the training baseline, with the largest movement in tool_wear (3.8z), air_temperature (1.3z), process_temperature (1.2z).",
+      "top_features": [
+        "tool_wear",
+        "air_temperature",
+        "process_temperature"
+      ]
+    },
+    {
+      "sample_id": 157,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T21:00:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.451,
+        "isolation_forest": 0.551,
+        "autoencoder": 1.0,
+        "lstm": 0.163
+      },
+      "health_score": 44.91,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.55: elevated readings in tool_wear (3.8z), air_temperature (1.5z), process_temperature (1.3z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "air_temperature",
+        "process_temperature"
+      ]
+    },
+    {
+      "sample_id": 158,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T21:05:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "FAILURE",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 1,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.503,
+        "isolation_forest": 0.402,
+        "autoencoder": 1.0,
+        "lstm": 0.167
+      },
+      "health_score": 59.79,
+      "health_label": "Watch",
+      "explanation": "Risk score 0.40: readings stayed near the training baseline, with the largest movement in tool_wear (3.9z), process_temperature (1.6z), rotational_speed (1.3z).",
+      "top_features": [
+        "tool_wear",
+        "process_temperature",
+        "rotational_speed"
+      ]
+    },
+    {
+      "sample_id": 159,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T21:10:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "FAILURE",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 1,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.513,
+        "isolation_forest": 0.775,
+        "autoencoder": 1.0,
+        "lstm": 0.159
+      },
+      "health_score": 22.45,
+      "health_label": "Critical",
+      "explanation": "Risk score 0.78: elevated readings in tool_wear (4.0z), air_temperature (3.1z), process_temperature (2.5z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "air_temperature",
+        "process_temperature"
+      ]
+    },
+    {
+      "sample_id": 160,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T21:15:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.498,
+        "isolation_forest": 0.604,
+        "autoencoder": 1.0,
+        "lstm": 0.15
+      },
+      "health_score": 39.61,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.60: elevated readings in tool_wear (3.9z), process_temperature (1.9z), air_temperature (0.9z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "process_temperature",
+        "air_temperature"
+      ]
+    },
+    {
+      "sample_id": 289,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T08:00:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.137,
+        "isolation_forest": 0.755,
+        "autoencoder": 1.0,
+        "lstm": 0.414
+      },
+      "health_score": 24.51,
+      "health_label": "Critical",
+      "explanation": "Risk score 0.76: elevated readings in tool_wear (2.9z), vibration (2.5z), torque (1.9z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 290,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T08:05:00",
+      "true_label": "FAILURE",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.364,
+        "isolation_forest": 0.934,
+        "autoencoder": 1.0,
+        "lstm": 0.433
+      },
+      "health_score": 6.57,
+      "health_label": "Critical",
+      "explanation": "Risk score 0.93: elevated readings in vibration (3.5z), tool_wear (2.9z), torque (1.9z) pushed this sample into the alert range.",
+      "top_features": [
+        "vibration",
+        "tool_wear",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 291,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T08:10:00",
+      "true_label": "FAILURE",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.411,
+        "isolation_forest": 1.0,
+        "autoencoder": 1.0,
+        "lstm": 0.485
+      },
+      "health_score": 0.0,
+      "health_label": "Critical",
+      "explanation": "Risk score 1.00: elevated readings in vibration (3.7z), torque (3.2z), tool_wear (2.9z) pushed this sample into the alert range.",
+      "top_features": [
+        "vibration",
+        "torque",
+        "tool_wear"
+      ]
+    },
+    {
+      "sample_id": 292,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T08:15:00",
+      "true_label": "FAILURE",
+      "predictions": {
+        "rule_based": "FAILURE",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 1,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.594,
+        "isolation_forest": 0.994,
+        "autoencoder": 1.0,
+        "lstm": 0.49
+      },
+      "health_score": 0.65,
+      "health_label": "Critical",
+      "explanation": "Risk score 0.99: elevated readings in vibration (4.2z), tool_wear (3.0z), torque (2.6z) pushed this sample into the alert range.",
+      "top_features": [
+        "vibration",
+        "tool_wear",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 293,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T08:20:00",
+      "true_label": "FAILURE",
+      "predictions": {
+        "rule_based": "FAILURE",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 1,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.502,
+        "isolation_forest": 1.0,
+        "autoencoder": 1.0,
+        "lstm": 0.497
+      },
+      "health_score": 0.0,
+      "health_label": "Critical",
+      "explanation": "Risk score 1.00: elevated readings in vibration (3.9z), torque (3.2z), tool_wear (3.0z) pushed this sample into the alert range.",
+      "top_features": [
+        "vibration",
+        "torque",
+        "tool_wear"
+      ]
+    },
+    {
+      "sample_id": 294,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T08:25:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.172,
+        "isolation_forest": 0.235,
+        "autoencoder": 0.874,
+        "lstm": 0.369
+      },
+      "health_score": 76.47,
+      "health_label": "Watch",
+      "explanation": "Risk score 0.23: readings stayed near the training baseline, with the largest movement in tool_wear (3.0z), vibration (0.4z), air_temperature (0.4z).",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "air_temperature"
+      ]
+    },
+    {
+      "sample_id": 295,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T08:30:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.183,
+        "isolation_forest": 0.46,
+        "autoencoder": 1.0,
+        "lstm": 0.274
+      },
+      "health_score": 54.01,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.46: readings stayed near the training baseline, with the largest movement in tool_wear (3.0z), vibration (1.9z), rotational_speed (0.8z).",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "rotational_speed"
+      ]
+    },
+    {
+      "sample_id": 296,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T08:35:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.21,
+        "isolation_forest": 0.433,
+        "autoencoder": 1.0,
+        "lstm": 0.2
+      },
+      "health_score": 56.71,
+      "health_label": "Watch",
+      "explanation": "Risk score 0.43: readings stayed near the training baseline, with the largest movement in tool_wear (3.1z), rotational_speed (1.4z), torque (1.1z).",
+      "top_features": [
+        "tool_wear",
+        "rotational_speed",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 297,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T08:40:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.201,
+        "isolation_forest": 0.398,
+        "autoencoder": 1.0,
+        "lstm": 0.149
+      },
+      "health_score": 60.24,
+      "health_label": "Watch",
+      "explanation": "Risk score 0.40: readings stayed near the training baseline, with the largest movement in tool_wear (3.1z), rotational_speed (1.2z), torque (0.9z).",
+      "top_features": [
+        "tool_wear",
+        "rotational_speed",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 298,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T08:45:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.186,
+        "isolation_forest": 0.391,
+        "autoencoder": 1.0,
+        "lstm": 0.116
+      },
+      "health_score": 60.87,
+      "health_label": "Watch",
+      "explanation": "Risk score 0.39: readings stayed near the training baseline, with the largest movement in tool_wear (3.0z), torque (1.1z), rotational_speed (1.0z).",
+      "top_features": [
+        "tool_wear",
+        "torque",
+        "rotational_speed"
+      ]
+    },
+    {
+      "sample_id": 299,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T08:50:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.266,
+        "isolation_forest": 0.348,
+        "autoencoder": 1.0,
+        "lstm": 0.106
+      },
+      "health_score": 65.22,
+      "health_label": "Watch",
+      "explanation": "Risk score 0.35: readings stayed near the training baseline, with the largest movement in tool_wear (3.3z), vibration (0.8z), process_temperature (0.7z).",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "process_temperature"
+      ]
+    },
+    {
+      "sample_id": 300,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T08:55:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.225,
+        "isolation_forest": 0.264,
+        "autoencoder": 0.946,
+        "lstm": 0.094
+      },
+      "health_score": 73.6,
+      "health_label": "Watch",
+      "explanation": "Risk score 0.26: readings stayed near the training baseline, with the largest movement in tool_wear (3.1z), vibration (0.7z), process_temperature (0.1z).",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "process_temperature"
+      ]
+    },
+    {
+      "sample_id": 301,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T09:00:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.282,
+        "isolation_forest": 0.232,
+        "autoencoder": 1.0,
+        "lstm": 0.09
+      },
+      "health_score": 76.77,
+      "health_label": "Watch",
+      "explanation": "Risk score 0.23: readings stayed near the training baseline, with the largest movement in tool_wear (3.3z), torque (0.5z), air_temperature (0.2z).",
+      "top_features": [
+        "tool_wear",
+        "torque",
+        "air_temperature"
+      ]
+    },
+    {
+      "sample_id": 302,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T09:05:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.307,
+        "isolation_forest": 0.3,
+        "autoencoder": 1.0,
+        "lstm": 0.074
+      },
+      "health_score": 70.05,
+      "health_label": "Watch",
+      "explanation": "Risk score 0.30: readings stayed near the training baseline, with the largest movement in tool_wear (3.4z), torque (0.8z), rotational_speed (0.8z).",
+      "top_features": [
+        "tool_wear",
+        "torque",
+        "rotational_speed"
+      ]
+    },
+    {
+      "sample_id": 303,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T09:10:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.314,
+        "isolation_forest": 0.411,
+        "autoencoder": 1.0,
+        "lstm": 0.09
+      },
+      "health_score": 58.88,
+      "health_label": "Watch",
+      "explanation": "Risk score 0.41: readings stayed near the training baseline, with the largest movement in tool_wear (3.4z), vibration (1.3z), torque (0.9z).",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 304,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T09:15:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.331,
+        "isolation_forest": 0.533,
+        "autoencoder": 1.0,
+        "lstm": 0.097
+      },
+      "health_score": 46.7,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.53: readings stayed near the training baseline, with the largest movement in tool_wear (3.4z), process_temperature (1.3z), torque (1.2z).",
+      "top_features": [
+        "tool_wear",
+        "process_temperature",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 305,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T09:20:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.31,
+        "isolation_forest": 0.348,
+        "autoencoder": 1.0,
+        "lstm": 0.088
+      },
+      "health_score": 65.2,
+      "health_label": "Watch",
+      "explanation": "Risk score 0.35: readings stayed near the training baseline, with the largest movement in tool_wear (3.4z), rotational_speed (1.1z), vibration (0.8z).",
+      "top_features": [
+        "tool_wear",
+        "rotational_speed",
+        "vibration"
+      ]
+    },
+    {
+      "sample_id": 306,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T09:25:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.362,
+        "isolation_forest": 0.447,
+        "autoencoder": 1.0,
+        "lstm": 0.099
+      },
+      "health_score": 55.3,
+      "health_label": "Watch",
+      "explanation": "Risk score 0.45: readings stayed near the training baseline, with the largest movement in tool_wear (3.5z), vibration (1.0z), process_temperature (0.9z).",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "process_temperature"
+      ]
+    },
+    {
+      "sample_id": 307,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T09:30:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.362,
+        "isolation_forest": 0.403,
+        "autoencoder": 1.0,
+        "lstm": 0.117
+      },
+      "health_score": 59.72,
+      "health_label": "Watch",
+      "explanation": "Risk score 0.40: readings stayed near the training baseline, with the largest movement in tool_wear (3.5z), vibration (1.0z), rotational_speed (0.6z).",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "rotational_speed"
+      ]
+    },
+    {
+      "sample_id": 308,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T09:35:00",
+      "true_label": "FAILURE",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.39,
+        "isolation_forest": 0.519,
+        "autoencoder": 1.0,
+        "lstm": 0.14
+      },
+      "health_score": 48.07,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.52: readings stayed near the training baseline, with the largest movement in tool_wear (3.6z), rotational_speed (1.4z), process_temperature (1.2z).",
+      "top_features": [
+        "tool_wear",
+        "rotational_speed",
+        "process_temperature"
+      ]
+    },
+    {
+      "sample_id": 309,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T09:40:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.371,
+        "isolation_forest": 0.439,
+        "autoencoder": 1.0,
+        "lstm": 0.15
+      },
+      "health_score": 56.12,
+      "health_label": "Watch",
+      "explanation": "Risk score 0.44: readings stayed near the training baseline, with the largest movement in tool_wear (3.6z), vibration (1.2z), process_temperature (0.9z).",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "process_temperature"
+      ]
+    },
+    {
+      "sample_id": 310,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T09:45:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.405,
+        "isolation_forest": 0.443,
+        "autoencoder": 1.0,
+        "lstm": 0.15
+      },
+      "health_score": 55.68,
+      "health_label": "Watch",
+      "explanation": "Risk score 0.44: readings stayed near the training baseline, with the largest movement in tool_wear (3.7z), process_temperature (0.7z), torque (0.7z).",
+      "top_features": [
+        "tool_wear",
+        "process_temperature",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 311,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T09:50:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.422,
+        "isolation_forest": 0.478,
+        "autoencoder": 1.0,
+        "lstm": 0.153
+      },
+      "health_score": 52.16,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.48: readings stayed near the training baseline, with the largest movement in tool_wear (3.7z), vibration (1.1z), air_temperature (0.9z).",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "air_temperature"
+      ]
+    },
+    {
+      "sample_id": 312,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T09:55:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.413,
+        "isolation_forest": 0.444,
+        "autoencoder": 1.0,
+        "lstm": 0.165
+      },
+      "health_score": 55.61,
+      "health_label": "Watch",
+      "explanation": "Risk score 0.44: readings stayed near the training baseline, with the largest movement in tool_wear (3.7z), torque (1.0z), process_temperature (0.9z).",
+      "top_features": [
+        "tool_wear",
+        "torque",
+        "process_temperature"
+      ]
+    },
+    {
+      "sample_id": 313,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T10:00:00",
+      "true_label": "FAILURE",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.415,
+        "isolation_forest": 0.697,
+        "autoencoder": 1.0,
+        "lstm": 0.215
+      },
+      "health_score": 30.29,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.70: elevated readings in tool_wear (3.7z), vibration (1.7z), rotational_speed (1.4z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "rotational_speed"
+      ]
+    },
+    {
+      "sample_id": 314,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T10:05:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.477,
+        "isolation_forest": 0.559,
+        "autoencoder": 1.0,
+        "lstm": 0.193
+      },
+      "health_score": 44.13,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.56: elevated readings in tool_wear (3.9z), air_temperature (1.2z), vibration (1.1z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "air_temperature",
+        "vibration"
+      ]
+    },
+    {
+      "sample_id": 315,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T10:10:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.405,
+        "isolation_forest": 0.545,
+        "autoencoder": 1.0,
+        "lstm": 0.186
+      },
+      "health_score": 45.55,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.55: readings stayed near the training baseline, with the largest movement in tool_wear (3.7z), process_temperature (1.3z), vibration (1.2z).",
+      "top_features": [
+        "tool_wear",
+        "process_temperature",
+        "vibration"
+      ]
+    },
+    {
+      "sample_id": 316,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T10:15:00",
+      "true_label": "FAILURE",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.492,
+        "isolation_forest": 0.628,
+        "autoencoder": 1.0,
+        "lstm": 0.208
+      },
+      "health_score": 37.16,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.63: elevated readings in tool_wear (3.9z), rotational_speed (1.6z), process_temperature (1.4z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "rotational_speed",
+        "process_temperature"
+      ]
+    },
+    {
+      "sample_id": 317,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T10:20:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.441,
+        "isolation_forest": 0.526,
+        "autoencoder": 1.0,
+        "lstm": 0.218
+      },
+      "health_score": 47.4,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.53: readings stayed near the training baseline, with the largest movement in tool_wear (3.8z), vibration (1.5z), process_temperature (1.1z).",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "process_temperature"
+      ]
+    },
+    {
+      "sample_id": 318,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T10:25:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "FAILURE",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 1,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.506,
+        "isolation_forest": 0.493,
+        "autoencoder": 1.0,
+        "lstm": 0.228
+      },
+      "health_score": 50.7,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.49: readings stayed near the training baseline, with the largest movement in tool_wear (3.9z), vibration (1.2z), rotational_speed (0.9z).",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "rotational_speed"
+      ]
+    },
+    {
+      "sample_id": 319,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T10:30:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.492,
+        "isolation_forest": 0.411,
+        "autoencoder": 1.0,
+        "lstm": 0.202
+      },
+      "health_score": 58.94,
+      "health_label": "Watch",
+      "explanation": "Risk score 0.41: readings stayed near the training baseline, with the largest movement in tool_wear (3.9z), process_temperature (1.2z), torque (0.9z).",
+      "top_features": [
+        "tool_wear",
+        "process_temperature",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 320,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T10:35:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "FAILURE",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 1,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.545,
+        "isolation_forest": 0.639,
+        "autoencoder": 1.0,
+        "lstm": 0.179
+      },
+      "health_score": 36.12,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.64: elevated readings in tool_wear (4.1z), air_temperature (1.8z), process_temperature (1.1z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "air_temperature",
+        "process_temperature"
+      ]
+    },
+    {
+      "sample_id": 449,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T21:20:00",
+      "true_label": "FAILURE",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.373,
+        "isolation_forest": 0.98,
+        "autoencoder": 1.0,
+        "lstm": 0.497
+      },
+      "health_score": 1.98,
+      "health_label": "Critical",
+      "explanation": "Risk score 0.98: elevated readings in vibration (3.6z), tool_wear (3.0z), torque (2.9z) pushed this sample into the alert range.",
+      "top_features": [
+        "vibration",
+        "tool_wear",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 450,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T21:25:00",
+      "true_label": "FAILURE",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "FAILURE"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 1
+      },
+      "scores": {
+        "rule_based": 0.472,
+        "isolation_forest": 1.0,
+        "autoencoder": 1.0,
+        "lstm": 0.514
+      },
+      "health_score": 0.0,
+      "health_label": "Critical",
+      "explanation": "Risk score 1.00: elevated readings in vibration (3.9z), torque (3.5z), tool_wear (3.0z) pushed this sample into the alert range.",
+      "top_features": [
+        "vibration",
+        "torque",
+        "tool_wear"
+      ]
+    },
+    {
+      "sample_id": 451,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T21:30:00",
+      "true_label": "FAILURE",
+      "predictions": {
+        "rule_based": "FAILURE",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "FAILURE"
+      },
+      "prediction_flags": {
+        "rule_based": 1,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 1
+      },
+      "scores": {
+        "rule_based": 0.723,
+        "isolation_forest": 1.0,
+        "autoencoder": 1.0,
+        "lstm": 0.519
+      },
+      "health_score": 0.0,
+      "health_label": "Critical",
+      "explanation": "Risk score 1.00: elevated readings in vibration (4.6z), torque (3.8z), tool_wear (3.0z) pushed this sample into the alert range.",
+      "top_features": [
+        "vibration",
+        "torque",
+        "tool_wear"
+      ]
+    },
+    {
+      "sample_id": 452,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T21:35:00",
+      "true_label": "FAILURE",
+      "predictions": {
+        "rule_based": "FAILURE",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "FAILURE"
+      },
+      "prediction_flags": {
+        "rule_based": 1,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 1
+      },
+      "scores": {
+        "rule_based": 1.0,
+        "isolation_forest": 1.0,
+        "autoencoder": 1.0,
+        "lstm": 0.53
+      },
+      "health_score": 0.0,
+      "health_label": "Critical",
+      "explanation": "Risk score 1.00: elevated readings in vibration (5.4z), torque (3.9z), tool_wear (3.0z) pushed this sample into the alert range.",
+      "top_features": [
+        "vibration",
+        "torque",
+        "tool_wear"
+      ]
+    },
+    {
+      "sample_id": 453,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T21:40:00",
+      "true_label": "FAILURE",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "FAILURE"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 1
+      },
+      "scores": {
+        "rule_based": 0.449,
+        "isolation_forest": 0.99,
+        "autoencoder": 1.0,
+        "lstm": 0.512
+      },
+      "health_score": 1.02,
+      "health_label": "Critical",
+      "explanation": "Risk score 0.99: elevated readings in vibration (3.8z), tool_wear (3.0z), torque (3.0z) pushed this sample into the alert range.",
+      "top_features": [
+        "vibration",
+        "tool_wear",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 454,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T21:45:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.222,
+        "isolation_forest": 0.627,
+        "autoencoder": 1.0,
+        "lstm": 0.381
+      },
+      "health_score": 37.31,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.63: elevated readings in tool_wear (3.1z), rotational_speed (2.1z), vibration (1.5z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "rotational_speed",
+        "vibration"
+      ]
+    },
+    {
+      "sample_id": 455,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T21:50:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.195,
+        "isolation_forest": 0.638,
+        "autoencoder": 1.0,
+        "lstm": 0.341
+      },
+      "health_score": 36.24,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.64: elevated readings in tool_wear (3.1z), torque (2.4z), air_temperature (1.1z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "torque",
+        "air_temperature"
+      ]
+    },
+    {
+      "sample_id": 456,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T21:55:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.193,
+        "isolation_forest": 0.58,
+        "autoencoder": 1.0,
+        "lstm": 0.286
+      },
+      "health_score": 42.04,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.58: elevated readings in tool_wear (3.1z), process_temperature (2.0z), vibration (1.3z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "process_temperature",
+        "vibration"
+      ]
+    },
+    {
+      "sample_id": 457,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T22:00:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.211,
+        "isolation_forest": 0.765,
+        "autoencoder": 1.0,
+        "lstm": 0.218
+      },
+      "health_score": 23.49,
+      "health_label": "Critical",
+      "explanation": "Risk score 0.77: elevated readings in tool_wear (3.1z), process_temperature (2.3z), rotational_speed (2.1z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "process_temperature",
+        "rotational_speed"
+      ]
+    },
+    {
+      "sample_id": 458,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T22:05:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.226,
+        "isolation_forest": 0.73,
+        "autoencoder": 1.0,
+        "lstm": 0.182
+      },
+      "health_score": 27.01,
+      "health_label": "Critical",
+      "explanation": "Risk score 0.73: elevated readings in tool_wear (3.1z), torque (1.9z), rotational_speed (1.9z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "torque",
+        "rotational_speed"
+      ]
+    },
+    {
+      "sample_id": 459,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T22:10:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.254,
+        "isolation_forest": 0.5,
+        "autoencoder": 1.0,
+        "lstm": 0.152
+      },
+      "health_score": 49.98,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.50: readings stayed near the training baseline, with the largest movement in tool_wear (3.2z), vibration (1.5z), air_temperature (1.4z).",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "air_temperature"
+      ]
+    },
+    {
+      "sample_id": 460,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T22:15:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.297,
+        "isolation_forest": 0.648,
+        "autoencoder": 1.0,
+        "lstm": 0.147
+      },
+      "health_score": 35.15,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.65: elevated readings in tool_wear (3.3z), vibration (1.9z), torque (1.8z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 461,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T22:20:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.266,
+        "isolation_forest": 0.461,
+        "autoencoder": 1.0,
+        "lstm": 0.12
+      },
+      "health_score": 53.94,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.46: readings stayed near the training baseline, with the largest movement in tool_wear (3.3z), rotational_speed (1.6z), vibration (1.3z).",
+      "top_features": [
+        "tool_wear",
+        "rotational_speed",
+        "vibration"
+      ]
+    },
+    {
+      "sample_id": 462,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T22:25:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.25,
+        "isolation_forest": 0.743,
+        "autoencoder": 1.0,
+        "lstm": 0.146
+      },
+      "health_score": 25.69,
+      "health_label": "Critical",
+      "explanation": "Risk score 0.74: elevated readings in tool_wear (3.2z), torque (1.9z), vibration (1.7z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "torque",
+        "vibration"
+      ]
+    },
+    {
+      "sample_id": 463,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T22:30:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.301,
+        "isolation_forest": 0.793,
+        "autoencoder": 1.0,
+        "lstm": 0.128
+      },
+      "health_score": 20.7,
+      "health_label": "Critical",
+      "explanation": "Risk score 0.79: elevated readings in tool_wear (3.4z), rotational_speed (2.8z), torque (1.6z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "rotational_speed",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 464,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T22:35:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.331,
+        "isolation_forest": 0.589,
+        "autoencoder": 1.0,
+        "lstm": 0.162
+      },
+      "health_score": 41.11,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.59: elevated readings in tool_wear (3.4z), vibration (2.0z), torque (1.6z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 465,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T22:40:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.341,
+        "isolation_forest": 0.408,
+        "autoencoder": 1.0,
+        "lstm": 0.164
+      },
+      "health_score": 59.19,
+      "health_label": "Watch",
+      "explanation": "Risk score 0.41: readings stayed near the training baseline, with the largest movement in tool_wear (3.5z), vibration (1.4z), torque (1.0z).",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 466,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T22:45:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.38,
+        "isolation_forest": 0.637,
+        "autoencoder": 1.0,
+        "lstm": 0.193
+      },
+      "health_score": 36.32,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.64: elevated readings in tool_wear (3.6z), torque (2.0z), vibration (1.9z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "torque",
+        "vibration"
+      ]
+    },
+    {
+      "sample_id": 467,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T22:50:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.37,
+        "isolation_forest": 0.466,
+        "autoencoder": 1.0,
+        "lstm": 0.219
+      },
+      "health_score": 53.36,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.47: readings stayed near the training baseline, with the largest movement in tool_wear (3.6z), vibration (2.0z), torque (1.2z).",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 468,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T22:55:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.39,
+        "isolation_forest": 0.598,
+        "autoencoder": 1.0,
+        "lstm": 0.22
+      },
+      "health_score": 40.21,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.60: elevated readings in tool_wear (3.6z), torque (2.4z), rotational_speed (0.9z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "torque",
+        "rotational_speed"
+      ]
+    },
+    {
+      "sample_id": 469,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T23:00:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.388,
+        "isolation_forest": 0.431,
+        "autoencoder": 1.0,
+        "lstm": 0.212
+      },
+      "health_score": 56.94,
+      "health_label": "Watch",
+      "explanation": "Risk score 0.43: readings stayed near the training baseline, with the largest movement in tool_wear (3.6z), vibration (1.4z), torque (1.1z).",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 470,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T23:05:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.393,
+        "isolation_forest": 0.69,
+        "autoencoder": 1.0,
+        "lstm": 0.228
+      },
+      "health_score": 31.01,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.69: elevated readings in tool_wear (3.6z), vibration (2.0z), torque (1.8z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 471,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T23:10:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.368,
+        "isolation_forest": 0.45,
+        "autoencoder": 1.0,
+        "lstm": 0.252
+      },
+      "health_score": 54.97,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.45: readings stayed near the training baseline, with the largest movement in tool_wear (3.6z), vibration (1.6z), torque (1.3z).",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 472,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T23:15:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.463,
+        "isolation_forest": 0.843,
+        "autoencoder": 1.0,
+        "lstm": 0.211
+      },
+      "health_score": 15.7,
+      "health_label": "Critical",
+      "explanation": "Risk score 0.84: elevated readings in tool_wear (3.8z), rotational_speed (2.5z), vibration (2.1z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "rotational_speed",
+        "vibration"
+      ]
+    },
+    {
+      "sample_id": 473,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T23:20:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.454,
+        "isolation_forest": 0.573,
+        "autoencoder": 1.0,
+        "lstm": 0.228
+      },
+      "health_score": 42.67,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.57: elevated readings in tool_wear (3.8z), vibration (1.8z), torque (1.7z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 474,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T23:25:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.472,
+        "isolation_forest": 0.648,
+        "autoencoder": 1.0,
+        "lstm": 0.232
+      },
+      "health_score": 35.21,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.65: elevated readings in tool_wear (3.8z), vibration (2.0z), torque (1.7z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 475,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T23:30:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.438,
+        "isolation_forest": 0.63,
+        "autoencoder": 1.0,
+        "lstm": 0.258
+      },
+      "health_score": 36.99,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.63: elevated readings in tool_wear (3.8z), vibration (2.0z), torque (1.9z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 476,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T23:35:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.463,
+        "isolation_forest": 0.559,
+        "autoencoder": 1.0,
+        "lstm": 0.266
+      },
+      "health_score": 44.06,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.56: elevated readings in tool_wear (3.8z), vibration (2.3z), air_temperature (1.0z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "air_temperature"
+      ]
+    },
+    {
+      "sample_id": 477,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T23:40:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.478,
+        "isolation_forest": 0.446,
+        "autoencoder": 1.0,
+        "lstm": 0.248
+      },
+      "health_score": 55.38,
+      "health_label": "Watch",
+      "explanation": "Risk score 0.45: readings stayed near the training baseline, with the largest movement in tool_wear (3.9z), vibration (2.0z), air_temperature (0.5z).",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "air_temperature"
+      ]
+    },
+    {
+      "sample_id": 478,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T23:45:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.472,
+        "isolation_forest": 0.801,
+        "autoencoder": 1.0,
+        "lstm": 0.276
+      },
+      "health_score": 19.91,
+      "health_label": "Critical",
+      "explanation": "Risk score 0.80: elevated readings in tool_wear (3.8z), vibration (2.3z), air_temperature (1.8z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "air_temperature"
+      ]
+    },
+    {
+      "sample_id": 479,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T23:50:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "FAILURE",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 1,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.505,
+        "isolation_forest": 0.409,
+        "autoencoder": 1.0,
+        "lstm": 0.236
+      },
+      "health_score": 59.06,
+      "health_label": "Watch",
+      "explanation": "Risk score 0.41: readings stayed near the training baseline, with the largest movement in tool_wear (3.9z), vibration (1.0z), process_temperature (0.8z).",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "process_temperature"
+      ]
+    },
+    {
+      "sample_id": 480,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T23:55:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "FAILURE",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 1,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.519,
+        "isolation_forest": 0.572,
+        "autoencoder": 1.0,
+        "lstm": 0.222
+      },
+      "health_score": 42.82,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.57: elevated readings in tool_wear (4.0z), vibration (1.9z), torque (0.9z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "torque"
+      ]
+    }
+  ],
+  "feature_importance": {
+    "tool_wear": 45,
+    "vibration": 25,
+    "torque": 10,
+    "air_temperature": 9,
+    "rotational_speed": 6,
+    "process_temperature": 5
+  },
+  "anomaly_score_ranking": [
+    {
+      "sample_id": 291,
+      "machine_id": "M-200",
+      "score": 1.0,
+      "predicted_label": "FAILURE",
+      "true_label": "FAILURE",
+      "health_score": 0.0,
+      "explanation": "Risk score 1.00: elevated readings in vibration (3.7z), torque (3.2z), tool_wear (2.9z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 293,
+      "machine_id": "M-200",
+      "score": 1.0,
+      "predicted_label": "FAILURE",
+      "true_label": "FAILURE",
+      "health_score": 0.0,
+      "explanation": "Risk score 1.00: elevated readings in vibration (3.9z), torque (3.2z), tool_wear (3.0z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 450,
+      "machine_id": "M-300",
+      "score": 1.0,
+      "predicted_label": "FAILURE",
+      "true_label": "FAILURE",
+      "health_score": 0.0,
+      "explanation": "Risk score 1.00: elevated readings in vibration (3.9z), torque (3.5z), tool_wear (3.0z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 451,
+      "machine_id": "M-300",
+      "score": 1.0,
+      "predicted_label": "FAILURE",
+      "true_label": "FAILURE",
+      "health_score": 0.0,
+      "explanation": "Risk score 1.00: elevated readings in vibration (4.6z), torque (3.8z), tool_wear (3.0z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 452,
+      "machine_id": "M-300",
+      "score": 1.0,
+      "predicted_label": "FAILURE",
+      "true_label": "FAILURE",
+      "health_score": 0.0,
+      "explanation": "Risk score 1.00: elevated readings in vibration (5.4z), torque (3.9z), tool_wear (3.0z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 292,
+      "machine_id": "M-200",
+      "score": 0.994,
+      "predicted_label": "FAILURE",
+      "true_label": "FAILURE",
+      "health_score": 0.65,
+      "explanation": "Risk score 0.99: elevated readings in vibration (4.2z), tool_wear (3.0z), torque (2.6z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 453,
+      "machine_id": "M-300",
+      "score": 0.99,
+      "predicted_label": "FAILURE",
+      "true_label": "FAILURE",
+      "health_score": 1.02,
+      "explanation": "Risk score 0.99: elevated readings in vibration (3.8z), tool_wear (3.0z), torque (3.0z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 449,
+      "machine_id": "M-300",
+      "score": 0.98,
+      "predicted_label": "FAILURE",
+      "true_label": "FAILURE",
+      "health_score": 1.98,
+      "explanation": "Risk score 0.98: elevated readings in vibration (3.6z), tool_wear (3.0z), torque (2.9z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 132,
+      "machine_id": "M-100",
+      "score": 0.967,
+      "predicted_label": "FAILURE",
+      "true_label": "FAILURE",
+      "health_score": 3.26,
+      "explanation": "Risk score 0.97: elevated readings in vibration (3.3z), tool_wear (3.0z), rotational_speed (2.3z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 131,
+      "machine_id": "M-100",
+      "score": 0.947,
+      "predicted_label": "FAILURE",
+      "true_label": "FAILURE",
+      "health_score": 5.26,
+      "explanation": "Risk score 0.95: elevated readings in vibration (3.4z), tool_wear (3.0z), torque (1.9z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 290,
+      "machine_id": "M-200",
+      "score": 0.934,
+      "predicted_label": "FAILURE",
+      "true_label": "FAILURE",
+      "health_score": 6.57,
+      "explanation": "Risk score 0.93: elevated readings in vibration (3.5z), tool_wear (2.9z), torque (1.9z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 472,
+      "machine_id": "M-300",
+      "score": 0.843,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 15.7,
+      "explanation": "Risk score 0.84: elevated readings in tool_wear (3.8z), rotational_speed (2.5z), vibration (2.1z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 133,
+      "machine_id": "M-100",
+      "score": 0.83,
+      "predicted_label": "FAILURE",
+      "true_label": "FAILURE",
+      "health_score": 17.05,
+      "explanation": "Risk score 0.83: elevated readings in tool_wear (3.1z), vibration (2.9z), torque (1.9z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 478,
+      "machine_id": "M-300",
+      "score": 0.801,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 19.91,
+      "explanation": "Risk score 0.80: elevated readings in tool_wear (3.8z), vibration (2.3z), air_temperature (1.8z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 463,
+      "machine_id": "M-300",
+      "score": 0.793,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 20.7,
+      "explanation": "Risk score 0.79: elevated readings in tool_wear (3.4z), rotational_speed (2.8z), torque (1.6z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 159,
+      "machine_id": "M-100",
+      "score": 0.775,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 22.45,
+      "explanation": "Risk score 0.78: elevated readings in tool_wear (4.0z), air_temperature (3.1z), process_temperature (2.5z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 457,
+      "machine_id": "M-300",
+      "score": 0.765,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 23.49,
+      "explanation": "Risk score 0.77: elevated readings in tool_wear (3.1z), process_temperature (2.3z), rotational_speed (2.1z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 152,
+      "machine_id": "M-100",
+      "score": 0.756,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 24.41,
+      "explanation": "Risk score 0.76: elevated readings in tool_wear (3.7z), air_temperature (2.0z), rotational_speed (1.7z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 289,
+      "machine_id": "M-200",
+      "score": 0.755,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 24.51,
+      "explanation": "Risk score 0.76: elevated readings in tool_wear (2.9z), vibration (2.5z), torque (1.9z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 462,
+      "machine_id": "M-300",
+      "score": 0.743,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 25.69,
+      "explanation": "Risk score 0.74: elevated readings in tool_wear (3.2z), torque (1.9z), vibration (1.7z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 129,
+      "machine_id": "M-100",
+      "score": 0.738,
+      "predicted_label": "FAILURE",
+      "true_label": "FAILURE",
+      "health_score": 26.17,
+      "explanation": "Risk score 0.74: elevated readings in vibration (2.9z), tool_wear (2.8z), torque (1.4z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 154,
+      "machine_id": "M-100",
+      "score": 0.738,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 26.24,
+      "explanation": "Risk score 0.74: elevated readings in tool_wear (3.9z), air_temperature (2.3z), process_temperature (1.8z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 458,
+      "machine_id": "M-300",
+      "score": 0.73,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 27.01,
+      "explanation": "Risk score 0.73: elevated readings in tool_wear (3.1z), torque (1.9z), rotational_speed (1.9z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 149,
+      "machine_id": "M-100",
+      "score": 0.711,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 28.89,
+      "explanation": "Risk score 0.71: elevated readings in tool_wear (3.4z), air_temperature (2.1z), process_temperature (1.9z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 313,
+      "machine_id": "M-200",
+      "score": 0.697,
+      "predicted_label": "FAILURE",
+      "true_label": "FAILURE",
+      "health_score": 30.29,
+      "explanation": "Risk score 0.70: elevated readings in tool_wear (3.7z), vibration (1.7z), rotational_speed (1.4z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 470,
+      "machine_id": "M-300",
+      "score": 0.69,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 31.01,
+      "explanation": "Risk score 0.69: elevated readings in tool_wear (3.6z), vibration (2.0z), torque (1.8z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 151,
+      "machine_id": "M-100",
+      "score": 0.676,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 32.43,
+      "explanation": "Risk score 0.68: elevated readings in tool_wear (3.7z), process_temperature (1.6z), air_temperature (1.4z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 130,
+      "machine_id": "M-100",
+      "score": 0.657,
+      "predicted_label": "FAILURE",
+      "true_label": "FAILURE",
+      "health_score": 34.3,
+      "explanation": "Risk score 0.66: elevated readings in tool_wear (2.9z), vibration (2.4z), torque (1.6z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 460,
+      "machine_id": "M-300",
+      "score": 0.648,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 35.15,
+      "explanation": "Risk score 0.65: elevated readings in tool_wear (3.3z), vibration (1.9z), torque (1.8z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 474,
+      "machine_id": "M-300",
+      "score": 0.648,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 35.21,
+      "explanation": "Risk score 0.65: elevated readings in tool_wear (3.8z), vibration (2.0z), torque (1.7z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 320,
+      "machine_id": "M-200",
+      "score": 0.639,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 36.12,
+      "explanation": "Risk score 0.64: elevated readings in tool_wear (4.1z), air_temperature (1.8z), process_temperature (1.1z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 455,
+      "machine_id": "M-300",
+      "score": 0.638,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 36.24,
+      "explanation": "Risk score 0.64: elevated readings in tool_wear (3.1z), torque (2.4z), air_temperature (1.1z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 466,
+      "machine_id": "M-300",
+      "score": 0.637,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 36.32,
+      "explanation": "Risk score 0.64: elevated readings in tool_wear (3.6z), torque (2.0z), vibration (1.9z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 475,
+      "machine_id": "M-300",
+      "score": 0.63,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 36.99,
+      "explanation": "Risk score 0.63: elevated readings in tool_wear (3.8z), vibration (2.0z), torque (1.9z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 316,
+      "machine_id": "M-200",
+      "score": 0.628,
+      "predicted_label": "FAILURE",
+      "true_label": "FAILURE",
+      "health_score": 37.16,
+      "explanation": "Risk score 0.63: elevated readings in tool_wear (3.9z), rotational_speed (1.6z), process_temperature (1.4z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 454,
+      "machine_id": "M-300",
+      "score": 0.627,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 37.31,
+      "explanation": "Risk score 0.63: elevated readings in tool_wear (3.1z), rotational_speed (2.1z), vibration (1.5z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 148,
+      "machine_id": "M-100",
+      "score": 0.626,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 37.39,
+      "explanation": "Risk score 0.63: elevated readings in tool_wear (3.5z), process_temperature (1.9z), air_temperature (1.8z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 160,
+      "machine_id": "M-100",
+      "score": 0.604,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 39.61,
+      "explanation": "Risk score 0.60: elevated readings in tool_wear (3.9z), process_temperature (1.9z), air_temperature (0.9z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 468,
+      "machine_id": "M-300",
+      "score": 0.598,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 40.21,
+      "explanation": "Risk score 0.60: elevated readings in tool_wear (3.6z), torque (2.4z), rotational_speed (0.9z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 464,
+      "machine_id": "M-300",
+      "score": 0.589,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 41.11,
+      "explanation": "Risk score 0.59: elevated readings in tool_wear (3.4z), vibration (2.0z), torque (1.6z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 153,
+      "machine_id": "M-100",
+      "score": 0.586,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 41.37,
+      "explanation": "Risk score 0.59: elevated readings in tool_wear (3.8z), air_temperature (1.7z), process_temperature (1.2z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 139,
+      "machine_id": "M-100",
+      "score": 0.583,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 41.71,
+      "explanation": "Risk score 0.58: elevated readings in tool_wear (3.3z), air_temperature (2.0z), torque (1.1z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 144,
+      "machine_id": "M-100",
+      "score": 0.58,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 41.96,
+      "explanation": "Risk score 0.58: elevated readings in tool_wear (3.3z), rotational_speed (1.8z), process_temperature (1.6z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 456,
+      "machine_id": "M-300",
+      "score": 0.58,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 42.04,
+      "explanation": "Risk score 0.58: elevated readings in tool_wear (3.1z), process_temperature (2.0z), vibration (1.3z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 473,
+      "machine_id": "M-300",
+      "score": 0.573,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 42.67,
+      "explanation": "Risk score 0.57: elevated readings in tool_wear (3.8z), vibration (1.8z), torque (1.7z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 480,
+      "machine_id": "M-300",
+      "score": 0.572,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 42.82,
+      "explanation": "Risk score 0.57: elevated readings in tool_wear (4.0z), vibration (1.9z), torque (0.9z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 314,
+      "machine_id": "M-200",
+      "score": 0.559,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 44.13,
+      "explanation": "Risk score 0.56: elevated readings in tool_wear (3.9z), air_temperature (1.2z), vibration (1.1z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 476,
+      "machine_id": "M-300",
+      "score": 0.559,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 44.06,
+      "explanation": "Risk score 0.56: elevated readings in tool_wear (3.8z), vibration (2.3z), air_temperature (1.0z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 157,
+      "machine_id": "M-100",
+      "score": 0.551,
+      "predicted_label": "FAILURE",
+      "true_label": "NORMAL",
+      "health_score": 44.91,
+      "explanation": "Risk score 0.55: elevated readings in tool_wear (3.8z), air_temperature (1.5z), process_temperature (1.3z) pushed this sample into the alert range."
+    },
+    {
+      "sample_id": 315,
+      "machine_id": "M-200",
+      "score": 0.545,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 45.55,
+      "explanation": "Risk score 0.55: readings stayed near the training baseline, with the largest movement in tool_wear (3.7z), process_temperature (1.3z), vibration (1.2z)."
+    },
+    {
+      "sample_id": 304,
+      "machine_id": "M-200",
+      "score": 0.533,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 46.7,
+      "explanation": "Risk score 0.53: readings stayed near the training baseline, with the largest movement in tool_wear (3.4z), process_temperature (1.3z), torque (1.2z)."
+    },
+    {
+      "sample_id": 317,
+      "machine_id": "M-200",
+      "score": 0.526,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 47.4,
+      "explanation": "Risk score 0.53: readings stayed near the training baseline, with the largest movement in tool_wear (3.8z), vibration (1.5z), process_temperature (1.1z)."
+    },
+    {
+      "sample_id": 308,
+      "machine_id": "M-200",
+      "score": 0.519,
+      "predicted_label": "NORMAL",
+      "true_label": "FAILURE",
+      "health_score": 48.07,
+      "explanation": "Risk score 0.52: readings stayed near the training baseline, with the largest movement in tool_wear (3.6z), rotational_speed (1.4z), process_temperature (1.2z)."
+    },
+    {
+      "sample_id": 150,
+      "machine_id": "M-100",
+      "score": 0.518,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 48.16,
+      "explanation": "Risk score 0.52: readings stayed near the training baseline, with the largest movement in tool_wear (3.6z), process_temperature (1.8z), rotational_speed (1.6z)."
+    },
+    {
+      "sample_id": 137,
+      "machine_id": "M-100",
+      "score": 0.513,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 48.71,
+      "explanation": "Risk score 0.51: readings stayed near the training baseline, with the largest movement in tool_wear (3.1z), rotational_speed (1.4z), vibration (0.8z)."
+    },
+    {
+      "sample_id": 155,
+      "machine_id": "M-100",
+      "score": 0.507,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 49.27,
+      "explanation": "Risk score 0.51: readings stayed near the training baseline, with the largest movement in tool_wear (3.8z), process_temperature (1.8z), rotational_speed (0.7z)."
+    },
+    {
+      "sample_id": 147,
+      "machine_id": "M-100",
+      "score": 0.503,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 49.7,
+      "explanation": "Risk score 0.50: readings stayed near the training baseline, with the largest movement in tool_wear (3.5z), process_temperature (1.4z), air_temperature (1.4z)."
+    },
+    {
+      "sample_id": 145,
+      "machine_id": "M-100",
+      "score": 0.5,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 49.97,
+      "explanation": "Risk score 0.50: readings stayed near the training baseline, with the largest movement in tool_wear (3.4z), process_temperature (1.8z), rotational_speed (1.1z)."
+    },
+    {
+      "sample_id": 459,
+      "machine_id": "M-300",
+      "score": 0.5,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 49.98,
+      "explanation": "Risk score 0.50: readings stayed near the training baseline, with the largest movement in tool_wear (3.2z), vibration (1.5z), air_temperature (1.4z)."
+    },
+    {
+      "sample_id": 318,
+      "machine_id": "M-200",
+      "score": 0.493,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 50.7,
+      "explanation": "Risk score 0.49: readings stayed near the training baseline, with the largest movement in tool_wear (3.9z), vibration (1.2z), rotational_speed (0.9z)."
+    },
+    {
+      "sample_id": 138,
+      "machine_id": "M-100",
+      "score": 0.486,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 51.41,
+      "explanation": "Risk score 0.49: readings stayed near the training baseline, with the largest movement in tool_wear (3.1z), air_temperature (1.7z), process_temperature (1.5z)."
+    },
+    {
+      "sample_id": 156,
+      "machine_id": "M-100",
+      "score": 0.484,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 51.63,
+      "explanation": "Risk score 0.48: readings stayed near the training baseline, with the largest movement in tool_wear (3.8z), air_temperature (1.3z), process_temperature (1.2z)."
+    },
+    {
+      "sample_id": 311,
+      "machine_id": "M-200",
+      "score": 0.478,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 52.16,
+      "explanation": "Risk score 0.48: readings stayed near the training baseline, with the largest movement in tool_wear (3.7z), vibration (1.1z), air_temperature (0.9z)."
+    },
+    {
+      "sample_id": 467,
+      "machine_id": "M-300",
+      "score": 0.466,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 53.36,
+      "explanation": "Risk score 0.47: readings stayed near the training baseline, with the largest movement in tool_wear (3.6z), vibration (2.0z), torque (1.2z)."
+    },
+    {
+      "sample_id": 140,
+      "machine_id": "M-100",
+      "score": 0.463,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 53.7,
+      "explanation": "Risk score 0.46: readings stayed near the training baseline, with the largest movement in tool_wear (3.2z), air_temperature (1.3z), process_temperature (1.0z)."
+    },
+    {
+      "sample_id": 461,
+      "machine_id": "M-300",
+      "score": 0.461,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 53.94,
+      "explanation": "Risk score 0.46: readings stayed near the training baseline, with the largest movement in tool_wear (3.3z), rotational_speed (1.6z), vibration (1.3z)."
+    },
+    {
+      "sample_id": 295,
+      "machine_id": "M-200",
+      "score": 0.46,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 54.01,
+      "explanation": "Risk score 0.46: readings stayed near the training baseline, with the largest movement in tool_wear (3.0z), vibration (1.9z), rotational_speed (0.8z)."
+    },
+    {
+      "sample_id": 471,
+      "machine_id": "M-300",
+      "score": 0.45,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 54.97,
+      "explanation": "Risk score 0.45: readings stayed near the training baseline, with the largest movement in tool_wear (3.6z), vibration (1.6z), torque (1.3z)."
+    },
+    {
+      "sample_id": 146,
+      "machine_id": "M-100",
+      "score": 0.448,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 55.16,
+      "explanation": "Risk score 0.45: readings stayed near the training baseline, with the largest movement in tool_wear (3.5z), air_temperature (1.6z), torque (1.6z)."
+    },
+    {
+      "sample_id": 306,
+      "machine_id": "M-200",
+      "score": 0.447,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 55.3,
+      "explanation": "Risk score 0.45: readings stayed near the training baseline, with the largest movement in tool_wear (3.5z), vibration (1.0z), process_temperature (0.9z)."
+    },
+    {
+      "sample_id": 477,
+      "machine_id": "M-300",
+      "score": 0.446,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 55.38,
+      "explanation": "Risk score 0.45: readings stayed near the training baseline, with the largest movement in tool_wear (3.9z), vibration (2.0z), air_temperature (0.5z)."
+    },
+    {
+      "sample_id": 312,
+      "machine_id": "M-200",
+      "score": 0.444,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 55.61,
+      "explanation": "Risk score 0.44: readings stayed near the training baseline, with the largest movement in tool_wear (3.7z), torque (1.0z), process_temperature (0.9z)."
+    },
+    {
+      "sample_id": 310,
+      "machine_id": "M-200",
+      "score": 0.443,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 55.68,
+      "explanation": "Risk score 0.44: readings stayed near the training baseline, with the largest movement in tool_wear (3.7z), process_temperature (0.7z), torque (0.7z)."
+    },
+    {
+      "sample_id": 309,
+      "machine_id": "M-200",
+      "score": 0.439,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 56.12,
+      "explanation": "Risk score 0.44: readings stayed near the training baseline, with the largest movement in tool_wear (3.6z), vibration (1.2z), process_temperature (0.9z)."
+    },
+    {
+      "sample_id": 296,
+      "machine_id": "M-200",
+      "score": 0.433,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 56.71,
+      "explanation": "Risk score 0.43: readings stayed near the training baseline, with the largest movement in tool_wear (3.1z), rotational_speed (1.4z), torque (1.1z)."
+    },
+    {
+      "sample_id": 469,
+      "machine_id": "M-300",
+      "score": 0.431,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 56.94,
+      "explanation": "Risk score 0.43: readings stayed near the training baseline, with the largest movement in tool_wear (3.6z), vibration (1.4z), torque (1.1z)."
+    },
+    {
+      "sample_id": 135,
+      "machine_id": "M-100",
+      "score": 0.427,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 57.35,
+      "explanation": "Risk score 0.43: readings stayed near the training baseline, with the largest movement in tool_wear (3.2z), rotational_speed (1.5z), torque (0.6z)."
+    },
+    {
+      "sample_id": 303,
+      "machine_id": "M-200",
+      "score": 0.411,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 58.88,
+      "explanation": "Risk score 0.41: readings stayed near the training baseline, with the largest movement in tool_wear (3.4z), vibration (1.3z), torque (0.9z)."
+    },
+    {
+      "sample_id": 319,
+      "machine_id": "M-200",
+      "score": 0.411,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 58.94,
+      "explanation": "Risk score 0.41: readings stayed near the training baseline, with the largest movement in tool_wear (3.9z), process_temperature (1.2z), torque (0.9z)."
+    },
+    {
+      "sample_id": 479,
+      "machine_id": "M-300",
+      "score": 0.409,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 59.06,
+      "explanation": "Risk score 0.41: readings stayed near the training baseline, with the largest movement in tool_wear (3.9z), vibration (1.0z), process_temperature (0.8z)."
+    },
+    {
+      "sample_id": 465,
+      "machine_id": "M-300",
+      "score": 0.408,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 59.19,
+      "explanation": "Risk score 0.41: readings stayed near the training baseline, with the largest movement in tool_wear (3.5z), vibration (1.4z), torque (1.0z)."
+    },
+    {
+      "sample_id": 307,
+      "machine_id": "M-200",
+      "score": 0.403,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 59.72,
+      "explanation": "Risk score 0.40: readings stayed near the training baseline, with the largest movement in tool_wear (3.5z), vibration (1.0z), rotational_speed (0.6z)."
+    },
+    {
+      "sample_id": 158,
+      "machine_id": "M-100",
+      "score": 0.402,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 59.79,
+      "explanation": "Risk score 0.40: readings stayed near the training baseline, with the largest movement in tool_wear (3.9z), process_temperature (1.6z), rotational_speed (1.3z)."
+    },
+    {
+      "sample_id": 297,
+      "machine_id": "M-200",
+      "score": 0.398,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 60.24,
+      "explanation": "Risk score 0.40: readings stayed near the training baseline, with the largest movement in tool_wear (3.1z), rotational_speed (1.2z), torque (0.9z)."
+    },
+    {
+      "sample_id": 134,
+      "machine_id": "M-100",
+      "score": 0.396,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 60.44,
+      "explanation": "Risk score 0.40: readings stayed near the training baseline, with the largest movement in tool_wear (3.1z), rotational_speed (1.3z), process_temperature (0.8z)."
+    },
+    {
+      "sample_id": 298,
+      "machine_id": "M-200",
+      "score": 0.391,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 60.87,
+      "explanation": "Risk score 0.39: readings stayed near the training baseline, with the largest movement in tool_wear (3.0z), torque (1.1z), rotational_speed (1.0z)."
+    },
+    {
+      "sample_id": 143,
+      "machine_id": "M-100",
+      "score": 0.374,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 62.62,
+      "explanation": "Risk score 0.37: readings stayed near the training baseline, with the largest movement in tool_wear (3.4z), air_temperature (1.0z), process_temperature (0.9z)."
+    },
+    {
+      "sample_id": 142,
+      "machine_id": "M-100",
+      "score": 0.359,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 64.14,
+      "explanation": "Risk score 0.36: readings stayed near the training baseline, with the largest movement in tool_wear (3.6z), process_temperature (1.3z), air_temperature (0.6z)."
+    },
+    {
+      "sample_id": 136,
+      "machine_id": "M-100",
+      "score": 0.356,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 64.37,
+      "explanation": "Risk score 0.36: readings stayed near the training baseline, with the largest movement in tool_wear (3.1z), rotational_speed (1.0z), air_temperature (1.0z)."
+    },
+    {
+      "sample_id": 299,
+      "machine_id": "M-200",
+      "score": 0.348,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 65.22,
+      "explanation": "Risk score 0.35: readings stayed near the training baseline, with the largest movement in tool_wear (3.3z), vibration (0.8z), process_temperature (0.7z)."
+    },
+    {
+      "sample_id": 305,
+      "machine_id": "M-200",
+      "score": 0.348,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 65.2,
+      "explanation": "Risk score 0.35: readings stayed near the training baseline, with the largest movement in tool_wear (3.4z), rotational_speed (1.1z), vibration (0.8z)."
+    },
+    {
+      "sample_id": 141,
+      "machine_id": "M-100",
+      "score": 0.338,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 66.23,
+      "explanation": "Risk score 0.34: readings stayed near the training baseline, with the largest movement in tool_wear (3.4z), air_temperature (0.9z), rotational_speed (0.8z)."
+    },
+    {
+      "sample_id": 302,
+      "machine_id": "M-200",
+      "score": 0.3,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 70.05,
+      "explanation": "Risk score 0.30: readings stayed near the training baseline, with the largest movement in tool_wear (3.4z), torque (0.8z), rotational_speed (0.8z)."
+    },
+    {
+      "sample_id": 300,
+      "machine_id": "M-200",
+      "score": 0.264,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 73.6,
+      "explanation": "Risk score 0.26: readings stayed near the training baseline, with the largest movement in tool_wear (3.1z), vibration (0.7z), process_temperature (0.1z)."
+    },
+    {
+      "sample_id": 294,
+      "machine_id": "M-200",
+      "score": 0.235,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 76.47,
+      "explanation": "Risk score 0.23: readings stayed near the training baseline, with the largest movement in tool_wear (3.0z), vibration (0.4z), air_temperature (0.4z)."
+    },
+    {
+      "sample_id": 301,
+      "machine_id": "M-200",
+      "score": 0.232,
+      "predicted_label": "NORMAL",
+      "true_label": "NORMAL",
+      "health_score": 76.77,
+      "explanation": "Risk score 0.23: readings stayed near the training baseline, with the largest movement in tool_wear (3.3z), torque (0.5z), air_temperature (0.2z)."
+    }
+  ],
+  "false_positive_deep_dive": [
+    {
+      "sample_id": 472,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T23:15:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.463,
+        "isolation_forest": 0.843,
+        "autoencoder": 1.0,
+        "lstm": 0.211
+      },
+      "health_score": 15.7,
+      "health_label": "Critical",
+      "explanation": "Risk score 0.84: elevated readings in tool_wear (3.8z), rotational_speed (2.5z), vibration (2.1z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "rotational_speed",
+        "vibration"
+      ]
+    },
+    {
+      "sample_id": 478,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T23:45:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.472,
+        "isolation_forest": 0.801,
+        "autoencoder": 1.0,
+        "lstm": 0.276
+      },
+      "health_score": 19.91,
+      "health_label": "Critical",
+      "explanation": "Risk score 0.80: elevated readings in tool_wear (3.8z), vibration (2.3z), air_temperature (1.8z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "vibration",
+        "air_temperature"
+      ]
+    },
+    {
+      "sample_id": 463,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T22:30:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.301,
+        "isolation_forest": 0.793,
+        "autoencoder": 1.0,
+        "lstm": 0.128
+      },
+      "health_score": 20.7,
+      "health_label": "Critical",
+      "explanation": "Risk score 0.79: elevated readings in tool_wear (3.4z), rotational_speed (2.8z), torque (1.6z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "rotational_speed",
+        "torque"
+      ]
+    },
+    {
+      "sample_id": 159,
+      "machine_id": "M-100",
+      "timestamp": "2026-01-01T21:10:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "FAILURE",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 1,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.513,
+        "isolation_forest": 0.775,
+        "autoencoder": 1.0,
+        "lstm": 0.159
+      },
+      "health_score": 22.45,
+      "health_label": "Critical",
+      "explanation": "Risk score 0.78: elevated readings in tool_wear (4.0z), air_temperature (3.1z), process_temperature (2.5z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "air_temperature",
+        "process_temperature"
+      ]
+    },
+    {
+      "sample_id": 457,
+      "machine_id": "M-300",
+      "timestamp": "2026-01-02T22:00:00",
+      "true_label": "NORMAL",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "FAILURE",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 1,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.211,
+        "isolation_forest": 0.765,
+        "autoencoder": 1.0,
+        "lstm": 0.218
+      },
+      "health_score": 23.49,
+      "health_label": "Critical",
+      "explanation": "Risk score 0.77: elevated readings in tool_wear (3.1z), process_temperature (2.3z), rotational_speed (2.1z) pushed this sample into the alert range.",
+      "top_features": [
+        "tool_wear",
+        "process_temperature",
+        "rotational_speed"
+      ]
+    }
+  ],
+  "false_negative_deep_dive": [
+    {
+      "sample_id": 308,
+      "machine_id": "M-200",
+      "timestamp": "2026-01-02T09:35:00",
+      "true_label": "FAILURE",
+      "predictions": {
+        "rule_based": "NORMAL",
+        "isolation_forest": "NORMAL",
+        "autoencoder": "FAILURE",
+        "lstm": "NORMAL"
+      },
+      "prediction_flags": {
+        "rule_based": 0,
+        "isolation_forest": 0,
+        "autoencoder": 1,
+        "lstm": 0
+      },
+      "scores": {
+        "rule_based": 0.39,
+        "isolation_forest": 0.519,
+        "autoencoder": 1.0,
+        "lstm": 0.14
+      },
+      "health_score": 48.07,
+      "health_label": "Risky",
+      "explanation": "Risk score 0.52: readings stayed near the training baseline, with the largest movement in tool_wear (3.6z), rotational_speed (1.4z), process_temperature (1.2z).",
+      "top_features": [
+        "tool_wear",
+        "rotational_speed",
+        "process_temperature"
+      ]
+    }
+  ],
+  "reference_stats": {
+    "mean": {
+      "air_temperature": 296.2756423076923,
+      "process_temperature": 306.7628230769231,
+      "rotational_speed": 1490.3325153846156,
+      "torque": 42.67446153846154,
+      "tool_wear": 32.80775769230769,
+      "vibration": 0.4231303846153846
+    },
+    "std": {
+      "air_temperature": 1.2531747771385346,
+      "process_temperature": 1.26753855025815,
+      "rotational_speed": 50.87696036264422,
+      "torque": 3.5188576679061985,
+      "tool_wear": 14.265283682333163,
+      "vibration": 0.07888544298688248
+    }
+  },
+  "executive_summary": "Isolation Forest delivered the best F1-score (0.485) on 96 test samples, with tool_wear as the top risk signal."
+}

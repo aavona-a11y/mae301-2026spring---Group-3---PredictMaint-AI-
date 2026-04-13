@@ -1,0 +1,28 @@
+{
+  "feature_columns": [
+    "air_temperature",
+    "process_temperature",
+    "rotational_speed",
+    "torque",
+    "tool_wear",
+    "vibration"
+  ],
+  "sigma_threshold": 2.5,
+  "means": {
+    "air_temperature": 296.2756423076923,
+    "process_temperature": 306.7628230769231,
+    "rotational_speed": 1490.3325153846156,
+    "torque": 42.67446153846154,
+    "tool_wear": 32.80775769230769,
+    "vibration": 0.4231303846153846
+  },
+  "stds": {
+    "air_temperature": 1.2531747771385346,
+    "process_temperature": 1.26753855025815,
+    "rotational_speed": 50.87696036264422,
+    "torque": 3.5188576679061985,
+    "tool_wear": 14.265283682333163,
+    "vibration": 0.07888544298688248
+  },
+  "threshold": 0.5
+}
