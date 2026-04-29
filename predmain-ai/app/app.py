@@ -275,12 +275,14 @@ def show_sample_breakdown(results: dict[str, Any], show_explanation: bool) -> No
         f"{best_model}_prediction",
         f"{best_model}_score",
         "rule_based_prediction",
-        "isolation_forest_prediction",
+        
         "autoencoder_prediction",
         "lstm_prediction",
     ]
     if show_explanation:
         display_columns.append("explanation")
+        # Remove duplicate columns safely
+        filtered = filtered.loc[:, ~filtered.columns.duplicated()]
     st.dataframe(filtered[display_columns], use_container_width=True, hide_index=True)
 
 

@@ -1,6 +1,6 @@
 {
-  "run_id": "6228352ec499",
-  "batch_id": "69d53493762f",
+  "run_id": "20d9c923dc57",
+  "batch_id": "fc6d3c5d0639",
   "feature_columns": [
     "air_temperature",
     "process_temperature",

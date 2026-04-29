@@ -1,7 +1,7 @@
 {
-  "run_id": "6228352ec499",
-  "batch_id": "69d53493762f",
-  "source_file": "data\\raw\\sample_sensor_data.csv",
+  "run_id": "20d9c923dc57",
+  "batch_id": "fc6d3c5d0639",
+  "source_file": "sample_sensor_data.csv",
   "database_path": "C:\\Users\\aidan\\OneDrive\\Documents\\GitHub\\mae301-2026spring---Group-3---PredictMaint-AI-\\predmain-ai\\outputs\\predmainai.db",
   "feature_columns": [
     "air_temperature",
