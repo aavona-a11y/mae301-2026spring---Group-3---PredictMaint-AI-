@@ -93,12 +93,14 @@ def _resolve_input_path(csv_path: str | Path | None) -> Path:
     raise FileNotFoundError(f"CSV file not found: {resolved}")
 
 
-def ingest_csv(csv_path: str | Path | None, database: DatabaseManager) -> IngestedDataset:
-    """Load a CSV, normalize its schema, store the raw rows, and return a dataframe."""
-    source_path = _resolve_input_path(csv_path)
-    raw_dataframe = pd.read_csv(source_path)
+def _prepare_ingested_dataframe(
+    raw_dataframe: pd.DataFrame,
+    source_name: str,
+    database: DatabaseManager,
+) -> IngestedDataset:
+    """Normalize, validate, persist, and package a raw dataframe."""
     if raw_dataframe.empty:
-        raise ValueError(f"The input CSV is empty: {source_path}")
+        raise ValueError(f"The input CSV is empty: {source_name}")
 
     normalized, rename_map = normalize_columns(raw_dataframe)
     normalized, notes = _ensure_machine_and_time_columns(normalized)
@@ -130,7 +132,7 @@ def ingest_csv(csv_path: str | Path | None, database: DatabaseManager) -> Ingest
     ]
     normalized = normalized[ordered_columns].sort_values(["machine_id", "timestamp", "sample_id"]).reset_index(drop=True)
     batch_id = uuid.uuid4().hex[:12]
-    database.insert_raw_records(normalized, batch_id=batch_id, source_file=str(source_path))
+    database.insert_raw_records(normalized, batch_id=batch_id, source_file=source_name)
 
     if rename_map:
         LOGGER.info("Normalized columns: %s", rename_map)
@@ -140,9 +142,25 @@ def ingest_csv(csv_path: str | Path | None, database: DatabaseManager) -> Ingest
     return IngestedDataset(
         dataframe=normalized,
         batch_id=batch_id,
-        source_path=source_path,
+        source_path=Path(source_name),
         available_feature_columns=available_feature_columns,
         missing_feature_columns=missing_feature_columns,
         label_available=label_available,
         notes=notes,
     )
+
+
+def ingest_dataframe(
+    dataframe: pd.DataFrame,
+    database: DatabaseManager,
+    source_name: str = "uploaded.csv",
+) -> IngestedDataset:
+    """Normalize and persist an in-memory CSV dataframe."""
+    return _prepare_ingested_dataframe(dataframe.copy(), source_name=source_name, database=database)
+
+
+def ingest_csv(csv_path: str | Path | None, database: DatabaseManager) -> IngestedDataset:
+    """Load a CSV, normalize its schema, store the raw rows, and return a dataframe."""
+    source_path = _resolve_input_path(csv_path)
+    raw_dataframe = pd.read_csv(source_path)
+    return _prepare_ingested_dataframe(raw_dataframe, source_name=str(source_path), database=database)

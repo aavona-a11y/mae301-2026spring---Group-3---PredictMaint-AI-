@@ -14,6 +14,7 @@ PredMainAI is a database-backed predictive maintenance MVP for class demos. It i
   - LSTM risk model
 - Writes evaluation output to `outputs/results.json`.
 - Prints a polished demo report with leaderboard, risky rows, feature fault summary, and false-positive / false-negative analysis.
+- Provides a Streamlit dashboard for CSV upload, model comparison, visual analytics, and downloads.
 - Generates a deterministic synthetic CSV if you do not already have one.
 
 ## Project structure
@@ -29,6 +30,8 @@ predmain-ai/
 |-- outputs/predmainai.db
 |-- requirements.txt
 |-- README.md
+|-- app/
+|   `-- app.py
 `-- src/
     |-- config.py
     |-- database.py
@@ -94,6 +97,24 @@ Or run everything and print the report in one step:
 python src/main.py run --csv data/raw/sample_sensor_data.csv
 ```
 
+## Run Web App
+
+```bash
+streamlit run app/app.py
+```
+
+If `streamlit` is not on your PATH, use:
+
+```bash
+python -m streamlit run app/app.py
+```
+
+## Demo Flow
+
+1. Upload a CSV file in the sidebar, or use the bundled sample dataset.
+2. Click `Run Analysis`.
+3. Review the dashboard sections for data preview, pipeline status, model leaderboard, risk ranking, sample breakdown, visual analytics, feature insights, and downloads.
+
 ## Input schema
 
 PredMainAI looks for these canonical columns when available:
@@ -143,7 +164,19 @@ What gets stored:
 2. `preprocess.py` creates train/validation/test splits, imputes missing values, scales features, stores cleaned rows, and saves feature statistics.
 3. `training.py` trains the four MVP models and saves artifacts in `outputs/models/`.
 4. `evaluation_pipeline.py` scores the test set, writes metrics to SQLite, and saves `outputs/results.json`.
-5. `results_report.py` and `display_results.py` print the six-section terminal summary.
+5. `data_loader.py`, `models.py`, `evaluate.py`, and `visualize.py` expose reusable public functions for the CLI and web app.
+6. `results_report.py` and `display_results.py` print the six-section terminal summary.
+7. `app/app.py` provides the Phase 3 Streamlit dashboard.
+
+## System architecture
+
+PredMainAI is organized as a small production-style pipeline:
+
+- Data layer: CSV ingestion, schema normalization, graceful validation, and SQLite persistence.
+- Processing layer: missing-value handling, chronological train/validation/test splits, scaling, and training-only feature statistics.
+- Model layer: rule-based baseline, Isolation Forest, PyTorch autoencoder, and PyTorch LSTM.
+- Evaluation layer: metrics, leaderboard, anomaly ranking, false-positive/false-negative analysis, JSON results, and database writes.
+- Product layer: Streamlit dashboard with controls, tables, charts, filters, explanations, and downloads.
 
 ## Results file
 
@@ -161,4 +194,10 @@ What gets stored:
 - The implementation is intentionally compact and readable over highly optimized.
 - The synthetic dataset is deterministic, so demo runs are reproducible.
 - The current MVP is CPU-friendly and designed to be expanded later.
-- A web UI is not included in this pass to keep the MVP focused and easy to run locally.
+
+## Limitations
+
+- Model performance is baseline MVP quality, not production maintenance reliability.
+- The LSTM is intentionally small so it can run on CPU during a live demo.
+- Uploaded datasets with missing labels can still be ingested, but supervised evaluation is less meaningful.
+- Feature explanations are based on deviations and model scores, not causal diagnosis.

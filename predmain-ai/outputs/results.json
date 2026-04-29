@@ -1,6 +1,6 @@
 {
-  "run_id": "daad4d9f3520",
-  "batch_id": "88597e1a1cd5",
+  "run_id": "6228352ec499",
+  "batch_id": "69d53493762f",
   "source_file": "data\\raw\\sample_sensor_data.csv",
   "database_path": "C:\\Users\\aidan\\OneDrive\\Documents\\GitHub\\mae301-2026spring---Group-3---PredictMaint-AI-\\predmain-ai\\outputs\\predmainai.db",
   "feature_columns": [
